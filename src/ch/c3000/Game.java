@@ -2,7 +2,9 @@ package ch.c3000;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.io.RandomAccessFile;
 import java.io.Serial;
+import java.util.Random;
 
 public class Game extends Canvas implements Runnable {
 
@@ -16,12 +18,16 @@ public class Game extends Canvas implements Runnable {
 
     private final Handler handler;
 
+    private final Random random = new Random();
+
     public Game() {
         new Window(WIDTH, HEIGHT, "Let's Build a Game!", this);
         handler = new Handler();
 
-        handler.addObject(new Snake(100, 100, ID.Snake));
-        handler.addObject(new Snake(200, 200, ID.Snake));
+        for (int i = 0; i < 25; i++) {
+            handler.addObject(new Snake(random.nextInt(WIDTH), random.nextInt(HEIGHT), ID.Snake));
+
+        }
     }
 
     public static void main(String[] args) {
