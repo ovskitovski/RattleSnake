@@ -17,12 +17,11 @@ public class Game extends Canvas implements Runnable {
 
     private final Handler handler;
 
-    private final Random random = new Random();
-
     public Game() {
-        new Window(WIDTH, HEIGHT, "Let's Build a Game!", this);
         handler = new Handler();
+        new Window(WIDTH, HEIGHT, "Let's Build a Game!", this);
 
+        Random random = new Random();
         for (int i = 0; i < 25; i++) {
             handler.addObject(new Square(random.nextInt(WIDTH), random.nextInt(HEIGHT), ID.Square));
         }
