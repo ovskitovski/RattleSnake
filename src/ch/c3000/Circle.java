@@ -3,19 +3,19 @@ package ch.c3000;
 import java.awt.*;
 import java.util.Random;
 
-public class Snake extends GameObject {
+public class Circle extends GameObject {
     private final int size;
     private final Random random = new Random();
     private final Color randomColor;
 
-    public Snake(int x, int y, ID id) {
+    public Circle(int x, int y, ID id) {
         super(x, y, id);
 
-        speedX = random.nextInt(-5,5);
-        speedY = random.nextInt(-5,5);
+        speedX = random.nextInt(-8,8);
+        speedY = random.nextInt(-8,8);
         size = 32;
         randomColor = new Color(
-                random.nextInt(255),
+                random.nextInt(10),
                 random.nextInt(255),
                 random.nextInt(255));
     }
@@ -45,7 +45,7 @@ public class Snake extends GameObject {
 
 
         g.setColor(randomColor);
-        g.fillRect(x, y, 32, 32);
+        g.fillOval(x, y, size, size);
     }
 
 
