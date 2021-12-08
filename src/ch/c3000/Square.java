@@ -11,8 +11,11 @@ public class Square extends GameObject {
     public Square(int x, int y, ID id) {
         super(x, y, id);
 
-        speedX = random.nextInt(-5,5);
-        speedY = random.nextInt(-5,5);
+        do {
+            speedX = random.nextInt(-5, 5);
+            speedY = random.nextInt(-5, 5);
+        } while (speedX == 0 || speedY == 0);
+
         size = 32;
         randomColor = new Color(
                 random.nextInt(255),
