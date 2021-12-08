@@ -92,7 +92,6 @@ public class Game extends Canvas implements Runnable {
         g.setColor(Color.black);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
-        assert handler != null;
         handler.render(g);
 
         g.dispose();
