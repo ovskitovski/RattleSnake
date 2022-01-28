@@ -19,7 +19,9 @@ public class Game extends Canvas implements Runnable {
 
     public Game() {
         handler = new Handler();
+        this.addKeyListener(new KeyInput(handler));
         new Window(WIDTH, HEIGHT, "Let's Build a Game!", this);
+
 
         Random random = new Random();
         for (int i = 0; i < 25; i++) {
@@ -73,7 +75,7 @@ public class Game extends Canvas implements Runnable {
 
             if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
-                System.out.println("FPS: " + frames);
+                // System.out.println("FPS: " + frames);
                 frames = 0;
             }
         }
